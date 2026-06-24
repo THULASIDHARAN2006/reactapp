@@ -1,0 +1,529 @@
+/* src/Login.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+
+  background: linear-gradient(
+    120deg,
+    #667eea,
+    #764ba2,
+    #ff758c
+  );
+
+  background-size: 300% 300%;
+  animation: bgMove 10s infinite alternate;
+}
+
+
+/* Moving background */
+
+@keyframes bgMove {
+
+  0%{
+    background-position:left;
+  }
+
+  100%{
+    background-position:right;
+  }
+
+}
+
+
+
+/* Floating circles */
+
+body::before,
+body::after {
+
+  content:"";
+
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,0.15);
+
+  animation: float 8s infinite ease-in-out;
+
+}
+
+
+
+body::before{
+
+  top:-100px;
+  left:-100px;
+
+}
+
+
+body::after{
+
+  bottom:-100px;
+  right:-100px;
+
+  animation-delay:3s;
+
+}
+
+
+
+@keyframes float{
+
+  0%,100%{
+    transform:translateY(0) rotate(0deg);
+  }
+
+  50%{
+    transform:translateY(40px) rotate(180deg);
+  }
+
+}
+
+
+
+/* Container */
+
+.login-container {
+
+ display:flex;
+
+ justify-content:center;
+
+ align-items:center;
+
+ height:100vh;
+
+ perspective:1000px;
+
+}
+
+
+
+/* Login Card */
+
+
+.login-form {
+
+ position:relative;
+
+ width:420px;
+
+ padding:45px;
+
+ border-radius:25px;
+
+
+ background:rgba(255,255,255,0.18);
+
+ backdrop-filter:blur(20px);
+
+
+ border:1px solid rgba(255,255,255,0.3);
+
+
+ box-shadow:
+
+ 0 25px 50px rgba(0,0,0,0.25);
+
+
+ animation:
+
+ cardEnter 1s ease,
+ glow 3s infinite alternate;
+
+
+ transform-style:preserve-3d;
+
+
+}
+
+
+
+@keyframes cardEnter{
+
+ from{
+
+ opacity:0;
+
+ transform:
+
+ translateY(100px)
+ rotateX(40deg);
+
+ }
+
+
+ to{
+
+ opacity:1;
+
+ transform:
+
+ translateY(0)
+ rotateX(0);
+
+ }
+
+}
+
+
+
+
+@keyframes glow{
+
+ from{
+
+ box-shadow:
+
+ 0 0 20px rgba(255,255,255,0.3);
+
+ }
+
+
+ to{
+
+ box-shadow:
+
+ 0 0 50px rgba(255,255,255,0.7);
+
+ }
+
+}
+
+
+
+/* Heading */
+
+.login-form h2 {
+
+
+ text-align:center;
+
+ color:white;
+
+ font-size:32px;
+
+ margin-bottom:35px;
+
+
+ animation:
+
+ textPop 1s ease;
+
+}
+
+
+
+@keyframes textPop{
+
+0%{
+
+opacity:0;
+
+transform:scale(0.5);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+
+
+/* Inputs */
+
+.login-form input {
+
+
+ width:100%;
+
+
+ padding:15px 18px;
+
+
+ margin-bottom:20px;
+
+
+ border:none;
+
+ outline:none;
+
+
+ border-radius:15px;
+
+
+ font-size:16px;
+
+
+ background:white;
+
+
+ animation:inputSlide .8s ease;
+
+
+ transition:.4s;
+
+
+}
+
+
+
+.login-form input:nth-child(2){
+
+ animation-delay:.2s;
+
+}
+
+
+.login-form input:nth-child(3){
+
+ animation-delay:.4s;
+
+}
+
+
+
+@keyframes inputSlide{
+
+
+from{
+
+opacity:0;
+
+transform:translateX(-60px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+
+}
+
+
+
+.login-form input:focus{
+
+
+transform:scale(1.08);
+
+
+box-shadow:
+
+0 0 20px #fff;
+
+
+}
+
+
+
+
+/* Button */
+
+
+.login-form button{
+
+
+ width:100%;
+
+
+ padding:15px;
+
+
+ border:none;
+
+
+ border-radius:15px;
+
+
+ font-size:18px;
+
+
+ font-weight:bold;
+
+
+ cursor:pointer;
+
+
+ color:white;
+
+
+ background:
+
+ linear-gradient(
+ 45deg,
+ #ff512f,
+ #dd2476
+ );
+
+
+ animation:
+
+ buttonPulse 2s infinite;
+
+
+ transition:.4s;
+
+
+}
+
+
+
+
+@keyframes buttonPulse{
+
+
+0%{
+
+box-shadow:
+
+0 0 0 0 rgba(255,255,255,.7);
+
+}
+
+
+70%{
+
+box-shadow:
+
+0 0 0 20px rgba(255,255,255,0);
+
+}
+
+
+100%{
+
+box-shadow:
+
+0 0 0 0 rgba(255,255,255,0);
+
+}
+
+
+}
+
+
+
+
+
+.login-form button:hover{
+
+
+transform:
+
+translateY(-5px)
+scale(1.05);
+
+
+background:
+
+linear-gradient(
+45deg,
+#00c6ff,
+#0072ff
+);
+
+
+}
+
+
+
+
+/* Message */
+
+
+.message{
+
+
+margin-top:20px;
+
+
+text-align:center;
+
+
+font-weight:bold;
+
+
+animation:
+
+fadeIn 1s;
+
+
+}
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+
+}
+
+
+
+.message.success{
+
+color:#00ff99;
+
+}
+
+
+.message.error{
+
+color:#ffdddd;
+
+}
+
+
+
+
+/* Mobile */
+
+
+@media(max-width:500px){
+
+.login-form{
+
+width:90%;
+
+padding:30px;
+
+}
+
+
+}

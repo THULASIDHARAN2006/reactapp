@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Poppins, Arial, sans-serif;
+}
+
+.register-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #141e30, #243b55);
+}
+
+.register-card {
+  width: 400px;
+  padding: 45px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: zoom 0.8s ease-out;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.register-card h1 {
+  text-align: center;
+  color: #243b55;
+  font-size: 35px;
+  margin-top: 0;
+}
+
+.register-card p {
+  text-align: center;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+/* Field Container */
+.field {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+/* Input Fields */
+.field input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid transparent; /* Added a transparent border to prevent shifting on focus */
+  border-radius: 10px;
+  background: #f1f3f6;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.field input:focus {
+  border-color: #dd2476;
+  background: #ffffff;
+}
+
+/* Floating Spans / Labels */
+.field span {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%); /* Perfectly centers the label vertically */
+  color: #777;
+  transition: 0.3s ease all;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* FIX: Floats label up when input is focused OR when it contains text 
+   (Requires placeholder=" " attribute on your React input elements)
+*/
+.field input:focus ~ span,
+.field input:not(:placeholder-shown) ~ span {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 12px;
+  background: white;
+  padding: 0 8px;
+  color: #dd2476;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+/* The Register Button */
+.register-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff512f, #dd2476);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  display: block; /* Guarantees layout presence */
+  margin-top: 10px;
+}
+
+.register-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(221, 36, 118, 0.4);
+}
+
+/* Disabled State for Loading */
+.register-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Success & Error Feedbacks */
+.success,
+.error {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}

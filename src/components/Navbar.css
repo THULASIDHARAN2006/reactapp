@@ -1,0 +1,55 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: linear-gradient(90deg, #4e73df, #1cc88a);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Links Container */
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Register Button */
+.register-btn {
+  background-color: white;
+  color: #4e73df;
+}
+
+.register-btn:hover {
+  background-color: #f8f9fc;
+  transform: scale(1.05);
+}
+
+/* Login Button */
+.login-btn {
+  background-color: #2e59d9;
+  color: white;
+}
+
+.login-btn:hover {
+  background-color: #224abe;
+  transform: scale(1.05);
+}
